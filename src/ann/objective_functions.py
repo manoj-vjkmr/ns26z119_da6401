@@ -16,26 +16,24 @@ def mse_loss(pred, y):
         y = np.eye(pred.shape[1])[y]
     return np.mean((pred - y) ** 2)
 
-def mse_grad(y_true, pred):
-    batch_size = pred.shape[0]
+def cross_entropy_grad(y_true, logits):
 
-    if y_true.ndim == 1 or y_true.shape[1] == 1:
-        y_int = y_true.astype(int).flatten()
-        y_one_hot = np.zeros_like(pred)
-        y_one_hot[np.arange(batch_size), y_int] = 1
-    else:
-        y_one_hot = y_true.astype(np.float32)
+    n = logits.shape[0]
+    
+    shift_logits = logits - np.max(logits, axis=1, keepdims=True)
+    exps = np.exp(shift_logits)
+    probs = exps / np.sum(exps, axis=1, keepdims=True)
+    
+    y_true = y_true.astype(int).flatten()
+    y_one_hot = np.zeros_like(probs)
+    y_one_hot[np.arange(n), y_true] = 1
+    
+    return (probs - y_one_hot) / n
 
-    grad = (pred - y_one_hot) * 2 / batch_size
-    return grad
+def mse_grad(y_true, logits):
+    n = logits.shape[0]
+    y_true = y_true.astype(int).flatten()
+    y_one_hot = np.zeros_like(logits)
+    y_one_hot[np.arange(n), y_true] = 1
     
-def cross_entropy_grad(y, pred):
-    batch_size = pred.shape[0]
-    y_int = y.astype(int).flatten()
-    
-    probs = pred
-    
-    grad = probs.copy()
-    grad[np.arange(batch_size), y_int] -= 1
-    
-    return grad / batch_size
+    return 2 * (logits - y_one_hot) / n

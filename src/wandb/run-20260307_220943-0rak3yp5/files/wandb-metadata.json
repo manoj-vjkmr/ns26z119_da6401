@@ -1,0 +1,40 @@
+{
+  "os":  "Windows-11-10.0.26200-SP0",
+  "python":  "CPython 3.13.12",
+  "startedAt":  "2026-03-07T16:39:43.487830Z",
+  "program":  "C:\\Users\\ashke\\Downloads\\NS26Z119_DL_Assignment1\\src\\train.py",
+  "codePath":  "src\\train.py",
+  "codePathLocal":  "train.py",
+  "git":  {
+    "remote":  "https://github.com/manoj-vjkmr/ns26z119_da6401",
+    "commit":  "615c2e85f7bf77724fc3a233b8d012ace64f486d"
+  },
+  "email":  "ns26z119@smail.iitm.ac.in",
+  "root":  "C:\\Users\\ashke\\Downloads\\NS26Z119_DL_Assignment1\\src",
+  "host":  "HPVictus24",
+  "executable":  "C:\\Users\\ashke\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+  "cpu_count":  6,
+  "cpu_count_logical":  12,
+  "gpu":  "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "469019652096",
+      "used":  "363100483584"
+    }
+  },
+  "memory":  {
+    "total":  "16473231360"
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA GeForce RTX 3050 Laptop GPU",
+      "memoryTotal":  "4294967296",
+      "cudaCores":  2048,
+      "architecture":  "Ampere",
+      "uuid":  "GPU-6eaeecb7-4cab-8eee-b3a8-a25a76b0acf7"
+    }
+  ],
+  "cudaVersion":  "13.1",
+  "writerId":  "3ngozv1415jhr5kb07gr71vh90hqpd60"
+}
