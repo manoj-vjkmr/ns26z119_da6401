@@ -115,16 +115,16 @@ class NeuralNetwork:
                 weights_dict[f"b{i}"] = layer.b
             return weights_dict
 
-        def set_weights(self, weight_dict):
+    def set_weights(self, weight_dict):
 
-            for i, layer in enumerate(self.layers):
-                w_key = f"W{i}"
-                b_key = f"b{i}"
-                if w_key in weight_dict and b_key in weight_dict:
-                    layer.W = weight_dict[w_key].copy()
-                    layer.b = weight_dict[b_key].copy()
-                else:
-                    print(f"Warning: {w_key} or {b_key} not found in provided weights.")
+        for i, layer in enumerate(self.layers):
+            w_key = f"W{i}"
+            b_key = f"b{i}"
+            if w_key in weight_dict and b_key in weight_dict:
+                layer.W = weight_dict[w_key].copy()
+                layer.b = weight_dict[b_key].copy()
+            else:
+                print(f"Warning: {w_key} or {b_key} not found in provided weights.")
 
     def train(self, X_train, y_train, X_val=None, y_val=None, epochs=1, batch_size=32):
 

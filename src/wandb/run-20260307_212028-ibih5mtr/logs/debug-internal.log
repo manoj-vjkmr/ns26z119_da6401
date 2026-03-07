@@ -1,0 +1,11 @@
+{"time":"2026-03-07T21:20:31.2560127+05:30","level":"INFO","msg":"stream: starting","core version":"0.25.0"}
+{"time":"2026-03-07T21:20:31.6650543+05:30","level":"INFO","msg":"stream: created new stream","id":"ibih5mtr"}
+{"time":"2026-03-07T21:20:31.665559+05:30","level":"INFO","msg":"handler: started","stream_id":"ibih5mtr"}
+{"time":"2026-03-07T21:20:31.6671959+05:30","level":"INFO","msg":"stream: started","id":"ibih5mtr"}
+{"time":"2026-03-07T21:20:31.6671959+05:30","level":"INFO","msg":"writer: started","stream_id":"ibih5mtr"}
+{"time":"2026-03-07T21:20:31.6671959+05:30","level":"INFO","msg":"sender: started","stream_id":"ibih5mtr"}
+{"time":"2026-03-07T21:21:00.3588687+05:30","level":"INFO","msg":"stream: closing","id":"ibih5mtr"}
+{"time":"2026-03-07T21:21:01.2071617+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-03-07T21:21:01.6012706+05:30","level":"INFO","msg":"handler: closed","stream_id":"ibih5mtr"}
+{"time":"2026-03-07T21:21:01.6098564+05:30","level":"INFO","msg":"sender: closed","stream_id":"ibih5mtr"}
+{"time":"2026-03-07T21:21:01.6098564+05:30","level":"INFO","msg":"stream: closed","id":"ibih5mtr"}
