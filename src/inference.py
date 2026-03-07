@@ -13,12 +13,13 @@ import matplotlib.pyplot as plt
 def parse_arguments():
     parser = argparse.ArgumentParser()
 
+    parser= argparse.ArgumentParser()
     parser.add_argument("-d", "--dataset", type=str, choices=["mnist", "fashion_mnist"], default="mnist")
     parser.add_argument("-e", "--epochs", type=int, default=20)
     parser.add_argument("-b", "--batch_size", type=int, default=64)
-    parser.add_argument("-lr", "--learning_rate", type=float, default=0.002)
+    parser.add_argument("-lr", "--learning_rate", type=float, default=0.001)
     parser.add_argument("-wd", "--weight_decay", type=float, default=0.0001)
-    parser.add_argument("-l", "--loss", type=str, choices=["mse", "cross_entropy"], default="mse")
+    parser.add_argument("-l", "--loss", type=str, choices=["mse", "cross_entropy"], default="cross_entropy")
     parser.add_argument("-o", "--optimizer", type=str, choices=["sgd", "momentum", "nag", "rmsprop"], default="rmsprop")
     parser.add_argument("-nhl", "--num_layers", type=int, default=2)
     parser.add_argument("-sz", "--hidden_size", nargs="+", type=int, default=[96, 96])
@@ -53,7 +54,7 @@ def get_model_path(args):
     print(f"No model found for given hyperparameters in {folder}")
 
 def load_model(model_path):
-    data = np.load(model_path, allow_pickle=True)
+    data = np.load(model_path, allow_pickle=True).item()
     return data
 
 def evaluate_model(model, X_test, y_test):
