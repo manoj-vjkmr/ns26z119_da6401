@@ -17,7 +17,7 @@ class neural_layer:
 
         self.b = np.zeros((1, n_output))
 
-    def forward(self, X):
+    def forward_pass(self, X):
         self.x = X
         self.z = np.dot(X, self.W) + self.b
 
@@ -32,7 +32,7 @@ class neural_layer:
 
         return self.a
 
-    def backward(self, grad):
+    def backward_pass(self, grad):
         if self.activation == "relu":
             grad = grad * (self.z > 0)
         elif self.activation == "sigmoid":
