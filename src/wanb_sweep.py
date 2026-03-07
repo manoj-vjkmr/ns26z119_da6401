@@ -2,7 +2,7 @@ import wandb
 import numpy as np
 import os
 import json
-from train import parse_arguments, fullnetwork, load_dataset, model_path
+from train import parse_arguments, NeuralNetwork, load_dataset, model_path
 
 sweep_config = {
     "method": "random",
@@ -47,7 +47,7 @@ def sweep_train():
     X_train, y_train, X_val, y_val, X_test, y_test = load_dataset(args.dataset)
     
     # Initialize and train model
-    model = fullnetwork(args)
+    model = NeuralNetwork(args)
     model.train(X_train, y_train, epochs=args.epochs, batch_size=args.batch_size)
     
     # Evaluate

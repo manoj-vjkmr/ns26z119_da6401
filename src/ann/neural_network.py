@@ -9,7 +9,7 @@ from .objective_functions import cross_entropy_grad, mse_grad
 from .optimizers import SGD, Momentum, RMSProp
 import wandb
 
-class fullnetwork:
+class NeuralNetwork:
 
     def __init__(self, cli_options):
 

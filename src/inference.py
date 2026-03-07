@@ -4,7 +4,7 @@ Evaluate trained models on test sets
 """
 import argparse
 import numpy as np
-from ann.neural_network import fullnetwork
+from ann.neural_network import NeuralNetwork
 from utils.data_loader import load_dataset
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, ConfusionMatrixDisplay
 import os
@@ -83,7 +83,7 @@ def main():
     X_train, y_train, X_val, y_val, X_test, y_test = load_dataset(args.dataset) 
     model_path = get_model_path(args)
 
-    model = fullnetwork(args)
+    model = NeuralNetwork(args)
     weights = load_model(model_path)
     model.set_weights(weights)
 

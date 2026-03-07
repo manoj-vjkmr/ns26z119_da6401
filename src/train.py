@@ -1,7 +1,7 @@
 import argparse
 import numpy as np
 import wandb
-from ann.neural_network import fullnetwork
+from ann.neural_network import NeuralNetwork
 from utils.data_loader import load_dataset
 import os
 import json
@@ -47,7 +47,7 @@ def main():
     X_train, y_train, X_val, y_val, X_test, y_test = load_dataset(args.dataset) 
     wandb.init(project=args.wandb_project, config=vars(args))
 
-    model= fullnetwork(args)
+    model= NeuralNetwork(args)
     model.train(X_train, y_train, epochs=args.epochs, batch_size=args.batch_size)
 
     acc= model.evaluate(X_test, y_test)
