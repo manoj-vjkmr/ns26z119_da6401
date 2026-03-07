@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\train.py", line 68, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\train.py", line 51, in main
+    model.train(X_train, y_train, epochs=args.epochs, batch_size=args.batch_size)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\ann\neural_network.py", line 150, in train
+    self.update_weights()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\ann\neural_network.py", line 106, in update_weights
+    self.optimizer.update(layer, self.grad_W[i], self.grad_b[i], i)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: RMSProp.update() takes 3 positional arguments but 5 were given

@@ -1,0 +1,17 @@
+{
+  "os":  "Windows-11-10.0.26200-SP0",
+  "python":  "CPython 3.13.12",
+  "startedAt":  "2026-03-07T16:00:07.854725Z",
+  "program":  "C:\\Users\\ashke\\Downloads\\NS26Z119_DL_Assignment1\\src\\train.py",
+  "codePath":  "src\\train.py",
+  "codePathLocal":  "train.py",
+  "git":  {
+    "remote":  "https://github.com/manoj-vjkmr/ns26z119_da6401",
+    "commit":  "8732c647fe83a9b1668cc8d24ff772c6b2230601"
+  },
+  "email":  "ns26z119@smail.iitm.ac.in",
+  "root":  "C:\\Users\\ashke\\Downloads\\NS26Z119_DL_Assignment1\\src",
+  "host":  "HPVictus24",
+  "executable":  "C:\\Users\\ashke\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+  "writerId":  "mp3hhx4equtf2ujlwb3kp9rum3tqsr0g"
+}
