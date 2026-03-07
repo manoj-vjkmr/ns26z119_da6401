@@ -56,7 +56,7 @@ def main():
 
     path= model_path(args)
     weights= model.get_weights()
-    np.save(path, weights)
+    np.save(path, weights, allow_pickle=True)
     print(f"Model saved at {path}")
 
     config_save_path = path.replace(".npy", ".json")

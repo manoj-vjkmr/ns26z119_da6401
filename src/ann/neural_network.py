@@ -81,33 +81,18 @@ class NeuralNetwork:
 
     def backward(self, y_true, y_pred):
 
-        if self.loss == "cross_entropy":
-            grad= cross_entropy_grad(y_pred, y_true)
-        else:
-            grad= mse_grad(y_pred, y_true)
+        grad_W_list = []
+        grad_b_list = []
 
-        temp_W_pd= []
-        temp_b_pd= []
+        for layer in reversed(self.layers):
 
-        for i in reversed(range(len(self.layers))):
+            dW, db = layer.backward()
 
-            layer= self.layers[i]
-            if i != len(self.layers) - 1:
-                grad= grad * self.activate_grad(self.z[i])
+            grad_W_list.append(dW)
+            grad_b_list.append(db)
 
-            grad= layer.backward(grad)
-            temp_W_pd.append(layer.grad_W)
-            temp_b_pd.append(layer.grad_b)
-
-        self.grad_W= np.empty(len(temp_W_pd), dtype=object)
-        self.grad_b= np.empty(len(temp_b_pd), dtype=object)
-
-        for i, (gw, gb) in enumerate(zip(temp_W_pd, temp_b_pd)):
-            self.grad_W[i]= gw
-            self.grad_b[i]= gb
-
-        grad_norm_layer1 = np.linalg.norm(self.grad_W[0])
-        wandb.log({"grad_norm_layer1": grad_norm_layer1})
+        self.grad_W = np.array(grad_W_list, dtype=object)
+        self.grad_b = np.array(grad_b_list, dtype=object)
 
         return self.grad_W, self.grad_b
 
@@ -132,11 +117,16 @@ class NeuralNetwork:
 
         return weights
 
-    def set_weights(self, weights):
+    def set_weights(self, weight_dict):
+        for i, layer in enumerate(self.layers):
+            w_key = f"W{i}"
+            b_key = f"b{i}"
 
-        for layer, w in zip(self.layers, weights):
-            layer.W= w["W"]
-            layer.b= w["b"]
+            if w_key not in weight_dict or b_key not in weight_dict:
+                raise ValueError(f"Missing weights for layer {i}")
+
+            layer.W = weight_dict[w_key].copy()
+            layer.b = weight_dict[b_key].copy()
 
     def train(self, X_train, y_train, X_val=None, y_val=None, epochs=1, batch_size=32):
 
