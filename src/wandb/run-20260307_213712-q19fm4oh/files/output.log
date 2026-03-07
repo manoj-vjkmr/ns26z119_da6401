@@ -1,0 +1,2 @@
+Test Accuracy: 0.0992
+Model saved at ..\models\mnist_epochs20_bs32_lr0.005_opt_rmsprop_hl96-96_act_relu_winit_random_2.npy
