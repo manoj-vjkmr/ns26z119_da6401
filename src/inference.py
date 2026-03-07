@@ -57,7 +57,7 @@ def load_model(model_path):
     return data
 
 def evaluate_model(model, X_test, y_test):
-    logits = model.forward_pass(X_test)
+    logits = model.forward(X_test)
     preds = np.argmax(logits, axis=1)
 
     metrics = {

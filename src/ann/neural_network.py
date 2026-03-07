@@ -53,7 +53,7 @@ class NeuralNetwork:
 
         return tanh_derivative(x)
 
-    def forward_pass(self, X):
+    def forward(self, X):
 
         out= X
         self.z= []
@@ -61,7 +61,7 @@ class NeuralNetwork:
 
         for i, layer in enumerate(self.layers):
 
-            z= layer.forward_pass(out)
+            z= layer.forward(out)
             self.z.append(z)
             if i != len(self.layers) - 1:
                 out= self.activate(z)
@@ -139,7 +139,7 @@ class NeuralNetwork:
                 xb= X_train[i:i + batch_size]
                 yb= y_train[i:i + batch_size]
 
-                logits = self.forward_pass(xb)
+                logits = self.forward(xb)
 
                 if self.loss == "cross_entropy":
                     from .objective_functions import cross_entropy_loss
@@ -156,13 +156,13 @@ class NeuralNetwork:
             epoch_loss/= num_batches
 
             # Training accuracy
-            train_logits = self.forward_pass(X_train)
+            train_logits = self.forward(X_train)
             train_preds = np.argmax(train_logits, axis=1)
             train_acc = np.mean(train_preds == y_train)
 
             # Validation accuracy
             if X_val is not None:
-                val_logits = self.forward_pass(X_val)
+                val_logits = self.forward(X_val)
                 val_preds = np.argmax(val_logits, axis=1)
                 val_acc = np.mean(val_preds == y_val)
             else:
@@ -181,6 +181,6 @@ class NeuralNetwork:
 
     def evaluate(self, X, y):
 
-        logits= self.forward_pass(X)
+        logits= self.forward(X)
         preds= np.argmax(logits, axis=1)
         return np.mean(preds == y)

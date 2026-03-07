@@ -15,7 +15,7 @@ class neural_layer:
 
         self.b= np.zeros((1, n_output))
 
-    def forward_pass(self, X):
+    def forward(self, X):
         self.x= X
         self.z= np.dot(X, self.W) + self.b
         return self.z
