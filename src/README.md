@@ -1,18 +1,1 @@
-{
-    "dataset": "mnist",
-    "epochs": 20,
-    "batch_size": 64,
-    "learning_rate": 0.002,
-    "weight_decay": 0.0001,
-    "loss": "mse",
-    "optimizer": "rmsprop",
-    "num_layers": 2,
-    "hidden_size": [
-        96,
-        96
-    ],
-    "activation": "sigmoid",
-    "weight_init": "xavier",
-    "wandb_project": "da6401",
-    "model_save_path": null
-}
+github repo: https://github.com/manoj-vjkmr/ns26z119_da6401 WandB report: https://api.wandb.ai/links/ns26z119-indian-insti/8yi7c4cy
