@@ -1,3 +1,0 @@
-C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\ann\activations.py:14: RuntimeWarning: overflow encountered in exp
-  return 1 / (1 + np.exp(-x))
-Goal Reached! F1 Score: 0.8870236180661756. Stopping sweep.
