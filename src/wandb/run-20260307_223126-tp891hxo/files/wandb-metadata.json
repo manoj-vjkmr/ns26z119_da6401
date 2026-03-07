@@ -1,0 +1,40 @@
+{
+  "os":  "Windows-11-10.0.26200-SP0",
+  "python":  "CPython 3.13.12",
+  "startedAt":  "2026-03-07T17:01:26.913237Z",
+  "program":  "C:\\Users\\ashke\\Downloads\\NS26Z119_DL_Assignment1\\src\\wanb_sweep.py",
+  "codePath":  "src\\wanb_sweep.py",
+  "codePathLocal":  "wanb_sweep.py",
+  "git":  {
+    "remote":  "https://github.com/manoj-vjkmr/ns26z119_da6401",
+    "commit":  "bb2f002678181314ea4580af0eec0a340e075825"
+  },
+  "email":  "ns26z119@smail.iitm.ac.in",
+  "root":  "C:\\Users\\ashke\\Downloads\\NS26Z119_DL_Assignment1\\src",
+  "host":  "HPVictus24",
+  "executable":  "C:\\Users\\ashke\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+  "cpu_count":  6,
+  "cpu_count_logical":  12,
+  "gpu":  "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "469019652096",
+      "used":  "362824462336"
+    }
+  },
+  "memory":  {
+    "total":  "16473231360"
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA GeForce RTX 3050 Laptop GPU",
+      "memoryTotal":  "4294967296",
+      "cudaCores":  2048,
+      "architecture":  "Ampere",
+      "uuid":  "GPU-6eaeecb7-4cab-8eee-b3a8-a25a76b0acf7"
+    }
+  ],
+  "cudaVersion":  "13.1",
+  "writerId":  "7xa3qx9hv15leru5tmbixbdrk93lauls"
+}

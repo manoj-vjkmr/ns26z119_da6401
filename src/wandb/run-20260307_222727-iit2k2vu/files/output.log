@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\ashke\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\wandb\agents\pyagent.py", line 304, in _run_job
+    self._function()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\wanb_sweep.py", line 53, in sweep_train
+    logits = model.forward_pass(X_test)
+             ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NeuralNetwork' object has no attribute 'forward_pass'
