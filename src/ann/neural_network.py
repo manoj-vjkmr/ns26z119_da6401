@@ -3,7 +3,7 @@ Main Neural Network Model class
 Handles forward and backward propagation loops
 """
 import numpy as np
-from .NeuralNetwork import NeuralNetwork
+from .neural_layer import neural_layer
 from .activations import relu, relu_derivative, sigmoid, sigmoid_derivative, tanh, tanh_derivative
 from .objective_functions import cross_entropy_grad, mse_grad
 from .optimizers import SGD, Momentum, RMSProp
@@ -17,10 +17,10 @@ class NeuralNetwork:
         n= 784 #hardcoded since MNIST images are 28x28
 
         for h in cli_options.hidden_size:
-            self.layers.append(NeuralNetwork(n, h, cli_options.weight_init))
+            self.layers.append(neural_layer(n, h, cli_options.weight_init))
             n= h
 
-        self.layers.append(NeuralNetwork(n, 10, cli_options.weight_init))
+        self.layers.append(neural_layer(n, 10, cli_options.weight_init))
         self.activation= cli_options.activation
         self.loss= cli_options.loss
 
@@ -53,7 +53,7 @@ class NeuralNetwork:
 
         return tanh_derivative(x)
 
-    def forward(self, X):
+    def forward_pass(self, X):
 
         out= X
         self.z= []
@@ -80,21 +80,23 @@ class NeuralNetwork:
         return out
 
     def backward(self, y_true, y_pred):
+            if self.loss == "cross_entropy":
+                grad = cross_entropy_grad(y_true, y_pred)
+            else:
+                grad = mse_grad(y_true, y_pred)
 
-        grad_W_list = []
-        grad_b_list = []
+            grad_W_list = []
+            grad_b_list = []
 
-        for layer in reversed(self.layers):
+            for layer in reversed(self.layers):
+                grad = layer.backward(grad) 
+                
+                grad_W_list.append(layer.grad_W)
+                grad_b_list.append(layer.grad_b)
 
-            dW, db = layer.backward()
-
-            grad_W_list.append(dW)
-            grad_b_list.append(db)
-
-        self.grad_W = np.array(grad_W_list, dtype=object)
-        self.grad_b = np.array(grad_b_list, dtype=object)
-
-        return self.grad_W, self.grad_b
+            self.grad_W = grad_W_list[::-1]
+            self.grad_b = grad_b_list[::-1]
+            return self.grad_W, self.grad_b
 
     def update_weights(self):
 
@@ -139,7 +141,7 @@ class NeuralNetwork:
                 xb= X_train[i:i + batch_size]
                 yb= y_train[i:i + batch_size]
 
-                logits = self.forward(xb)
+                logits = self.forward_pass(xb)
 
                 if self.loss == "cross_entropy":
                     from .objective_functions import cross_entropy_loss
@@ -156,13 +158,13 @@ class NeuralNetwork:
             epoch_loss/= num_batches
 
             # Training accuracy
-            train_logits = self.forward(X_train)
+            train_logits = self.forward_pass(X_train)
             train_preds = np.argmax(train_logits, axis=1)
             train_acc = np.mean(train_preds == y_train)
 
             # Validation accuracy
             if X_val is not None:
-                val_logits = self.forward(X_val)
+                val_logits = self.forward_pass(X_val)
                 val_preds = np.argmax(val_logits, axis=1)
                 val_acc = np.mean(val_preds == y_val)
             else:
@@ -181,6 +183,6 @@ class NeuralNetwork:
 
     def evaluate(self, X, y):
 
-        logits= self.forward(X)
+        logits= self.forward_pass(X)
         preds= np.argmax(logits, axis=1)
         return np.mean(preds == y)

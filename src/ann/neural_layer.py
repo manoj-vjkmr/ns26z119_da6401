@@ -4,7 +4,7 @@ Handles weight initialization, forward pass, and gradient computation
 """
 import numpy as np
 
-class NeuralNetwork:
+class neural_layer:
 
     def __init__(self, n_input, n_output, activation="linear", weight_init="xavier"):
         self.activation = activation

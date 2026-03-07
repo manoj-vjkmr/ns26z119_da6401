@@ -22,7 +22,8 @@ def mse_loss(pred, y):
         y = np.eye(pred.shape[1])[y]
     return np.mean((pred - y) ** 2)
 
-def mse_grad(pred, y):
-    if y.ndim == 1:
-        y = np.eye(pred.shape[1])[y]
-    return 2 * (pred - y) / y.size
+def mse_grad(y, pred):
+    y_one_hot = np.zeros_like(pred)
+    y_one_hot[np.arange(y.shape[0]), y] = 1
+    
+    return 2 * (pred - y_one_hot) / y.size

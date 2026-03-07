@@ -1,0 +1,85 @@
+_wandb:
+    value:
+        cli_version: 0.25.0
+        e:
+            d16jdat2raf7n0rt6y8z19pts3du7mz7:
+                codePath: src\train.py
+                codePathLocal: train.py
+                cpu_count: 6
+                cpu_count_logical: 12
+                cudaVersion: "13.1"
+                disk:
+                    /:
+                        total: "469019652096"
+                        used: "362378854400"
+                email: ns26z119@smail.iitm.ac.in
+                executable: C:\Users\ashke\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\python.exe
+                git:
+                    commit: 043f3291debb54d1a9e21acdb963c16e30cf1508
+                    remote: https://github.com/manoj-vjkmr/ns26z119_da6401
+                gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Ampere
+                      cudaCores: 2048
+                      memoryTotal: "4294967296"
+                      name: NVIDIA GeForce RTX 3050 Laptop GPU
+                      uuid: GPU-6eaeecb7-4cab-8eee-b3a8-a25a76b0acf7
+                host: HPVictus24
+                memory:
+                    total: "16473231360"
+                os: Windows-11-10.0.26200-SP0
+                program: C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\train.py
+                python: CPython 3.13.12
+                root: C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src
+                startedAt: "2026-03-07T15:09:35.175476Z"
+                writerId: d16jdat2raf7n0rt6y8z19pts3du7mz7
+        m: []
+        python_version: 3.13.12
+        t:
+            "1":
+                - 2
+                - 3
+                - 5
+                - 53
+            "2":
+                - 2
+                - 3
+                - 5
+                - 53
+            "3":
+                - 16
+            "4": 3.13.12
+            "5": 0.25.0
+            "8":
+                - 3
+            "12": 0.25.0
+            "13": windows-amd64
+activation:
+    value: sigmoid
+batch_size:
+    value: 64
+dataset:
+    value: mnist
+epochs:
+    value: 20
+hidden_size:
+    value:
+        - 96
+        - 96
+learning_rate:
+    value: 0.002
+loss:
+    value: mse
+model_save_path:
+    value: null
+num_layers:
+    value: 2
+optimizer:
+    value: rmsprop
+wandb_project:
+    value: da6401
+weight_decay:
+    value: 0.0001
+weight_init:
+    value: xavier

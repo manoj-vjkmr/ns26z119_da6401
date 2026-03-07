@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\train.py", line 68, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\train.py", line 51, in main
+    model.train(X_train, y_train, epochs=args.epochs, batch_size=args.batch_size)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\ann\neural_network.py", line 142, in train
+    logits = self.forward_pass(xb)
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\ann\neural_network.py", line 64, in forward_pass
+    z= layer.forward(out)
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'neural_layer' object has no attribute 'forward_pass'

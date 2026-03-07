@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\train.py", line 68, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\train.py", line 51, in main
+    model.train(X_train, y_train, epochs=args.epochs, batch_size=args.batch_size)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\ann\neural_network.py", line 156, in train
+    self.backward(yb, logits)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\ann\neural_network.py", line 86, in backward
+    grad = mse_grad(y_true, y_pred)
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\ann\objective_functions.py", line 28, in mse_grad
+    return 2 * (pred - y) / y.size
+                ~~~~~^~~
+ValueError: operands could not be broadcast together with shapes (64,) (64,10)
