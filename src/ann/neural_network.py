@@ -99,13 +99,11 @@ class NeuralNetwork:
             return self.grad_W, self.grad_b
 
     def update_weights(self):
-
-        for i, layer in enumerate(self.layers):
-
-            if isinstance(self.optimizer, SGD):
-                self.optimizer.update(layer)
-            else:
-                self.optimizer.update(layer, i)
+            for i, layer in enumerate(self.layers):
+                if isinstance(self.optimizer, SGD):
+                    self.optimizer.update(layer, self.grad_W[i], self.grad_b[i])
+                else:
+                    self.optimizer.update(layer, self.grad_W[i], self.grad_b[i], i)
 
     def get_weights(self):
 
