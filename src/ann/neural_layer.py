@@ -32,15 +32,18 @@ class neural_layer:
 
         return self.a
 
-    def backward_pass(self, grad):
-            if self.activation == "relu":
-                grad = grad * (self.z > 0)
-            elif self.activation == "sigmoid":
-                grad = grad * self.a * (1 - self.a)
-            elif self.activation == "tanh":
-                grad = grad * (1 - self.a**2)
+    def backward_pass(self, grad, batch_size=None):
+        if batch_size is None:
+            batch_size = grad.shape[0]
 
-            self.grad_W = np.dot(self.x.T, grad)
-            self.grad_b = np.sum(grad, axis=0, keepdims=True)
-            
-            return np.dot(grad, self.W.T)
+        if self.activation == "relu":
+            grad = grad * (self.z > 0)
+        elif self.activation == "sigmoid":
+            grad = grad * self.a * (1 - self.a)
+        elif self.activation == "tanh":
+            grad = grad * (1 - self.a**2)
+
+        self.grad_W = np.dot(self.x.T, grad) / batch_size
+        self.grad_b = np.sum(grad, axis=0, keepdims=True) / batch_size
+
+        return np.dot(grad, self.W.T)

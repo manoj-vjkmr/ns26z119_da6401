@@ -88,8 +88,10 @@ class NeuralNetwork:
             grad_W_list = []
             grad_b_list = []
 
+            batch_size = y_true.shape[0]
+
             for layer in reversed(self.layers):
-                grad = layer.backward_pass(grad) 
+                grad = layer.backward_pass(grad, batch_size=batch_size) 
                 
                 grad_W_list.append(layer.grad_W)
                 grad_b_list.append(layer.grad_b)
