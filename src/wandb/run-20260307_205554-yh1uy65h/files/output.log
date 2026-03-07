@@ -1,0 +1,4 @@
+C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\ann\activations.py:14: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp(-x))
+Test Accuracy: 0.8120
+Model saved at ..\models\mnist_epochs20_bs64_lr0.002_opt_rmsprop_hl96_act_sigmoid_winit_xavier_3.npy
