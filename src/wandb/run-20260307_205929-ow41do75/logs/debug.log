@@ -1,0 +1,25 @@
+2026-03-07 20:59:29,170 INFO    Thread-22 (_run_job):6176 [wandb_setup.py:_flush():81] Current SDK version is 0.25.0
+2026-03-07 20:59:29,171 INFO    Thread-22 (_run_job):6176 [wandb_setup.py:_flush():81] Configure stats pid to 6176
+2026-03-07 20:59:29,171 INFO    Thread-22 (_run_job):6176 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-03-07 20:59:29,171 INFO    Thread-22 (_run_job):6176 [wandb_init.py:setup_run_log_directory():717] Logging user logs to C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\wandb\run-20260307_205929-ow41do75\logs\debug.log
+2026-03-07 20:59:29,171 INFO    Thread-22 (_run_job):6176 [wandb_init.py:setup_run_log_directory():718] Logging internal logs to C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\wandb\run-20260307_205929-ow41do75\logs\debug-internal.log
+2026-03-07 20:59:29,171 INFO    Thread-22 (_run_job):6176 [wandb_init.py:init():844] calling init triggers
+2026-03-07 20:59:29,171 INFO    Thread-22 (_run_job):6176 [wandb_init.py:init():849] wandb.init called with sweep_config: {'activation': 'tanh', 'batch_size': 64, 'dataset': 'mnist', 'epochs': 10, 'hidden_size': 96, 'learning_rate': 0.01, 'loss': 'cross_entropy', 'num_layers': 5, 'optimizer': 'nag', 'weight_decay': 0, 'weight_init': 'random'}
+config: {'_wandb': {}}
+2026-03-07 20:59:29,171 INFO    Thread-22 (_run_job):6176 [wandb_init.py:init():892] starting backend
+2026-03-07 20:59:31,431 INFO    Thread-22 (_run_job):6176 [wandb_init.py:init():895] sending inform_init request
+2026-03-07 20:59:31,434 INFO    Thread-22 (_run_job):6176 [wandb_init.py:init():903] backend started and connected
+2026-03-07 20:59:31,434 INFO    Thread-22 (_run_job):6176 [wandb_run.py:_config_callback():1403] config_cb None None {'activation': 'tanh', 'batch_size': 64, 'dataset': 'mnist', 'epochs': 10, 'hidden_size': 96, 'learning_rate': 0.01, 'loss': 'cross_entropy', 'num_layers': 5, 'optimizer': 'nag', 'weight_decay': 0, 'weight_init': 'random'}
+2026-03-07 20:59:31,435 INFO    Thread-22 (_run_job):6176 [wandb_init.py:init():973] updated telemetry
+2026-03-07 20:59:31,478 INFO    Thread-22 (_run_job):6176 [wandb_init.py:init():997] communicating run to backend with 90.0 second timeout
+2026-03-07 20:59:32,217 INFO    Thread-22 (_run_job):6176 [wandb_init.py:init():1042] starting run threads in backend
+2026-03-07 20:59:32,362 INFO    Thread-22 (_run_job):6176 [wandb_run.py:_console_start():2524] atexit reg
+2026-03-07 20:59:32,362 INFO    Thread-22 (_run_job):6176 [wandb_run.py:_redirect():2373] redirect: wrap_raw
+2026-03-07 20:59:32,362 INFO    Thread-22 (_run_job):6176 [wandb_run.py:_redirect():2442] Wrapping output streams.
+2026-03-07 20:59:32,362 INFO    Thread-22 (_run_job):6176 [wandb_run.py:_redirect():2465] Redirects installed.
+2026-03-07 20:59:32,387 INFO    Thread-22 (_run_job):6176 [wandb_init.py:init():1082] run started, returning control to user process
+2026-03-07 20:59:32,971 INFO    Thread-22 (_run_job):6176 [wandb_run.py:_finish():2291] finishing run ns26z119-indian-insti/da6401/ow41do75
+2026-03-07 20:59:32,972 INFO    Thread-22 (_run_job):6176 [wandb_run.py:_atexit_cleanup():2490] got exitcode: 1
+2026-03-07 20:59:32,972 INFO    Thread-22 (_run_job):6176 [wandb_run.py:_restore():2472] restore
+2026-03-07 20:59:32,972 INFO    Thread-22 (_run_job):6176 [wandb_run.py:_restore():2478] restore done
+2026-03-07 20:59:34,487 INFO    Thread-22 (_run_job):6176 [wandb_run.py:_footer_sync_info():3868] logging synced files

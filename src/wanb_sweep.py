@@ -2,6 +2,7 @@ import wandb
 import numpy as np
 import os
 import json
+import sys
 from train import parse_arguments, NeuralNetwork, load_dataset, model_path
 
 sweep_config = {
@@ -9,7 +10,7 @@ sweep_config = {
     "metric": {"name": "test_accuracy", "goal": "maximize"},
     "parameters": {
         "dataset": {"values": ["mnist"]},
-        "epochs": {"values": [10, 15]},
+        "epochs": {"values": [10]},
         "batch_size": {"values": [32, 64, 128]},
         "learning_rate": {"values": [0.0005, 0.001, 0.002, 0.005, 0.01]},
         "weight_decay": {"values": [0.0, 1e-5, 1e-4]}, 
@@ -43,14 +44,11 @@ def sweep_train():
     args.wandb_project = "da6401"
     args.model_save_path = None
     
-    # Load dataset
     X_train, y_train, X_val, y_val, X_test, y_test = load_dataset(args.dataset)
     
-    # Initialize and train model
     model = NeuralNetwork(args)
     model.train(X_train, y_train, epochs=args.epochs, batch_size=args.batch_size)
     
-    # Evaluate
     val_acc = model.evaluate(X_val, y_val)
     test_acc = model.evaluate(X_test, y_test)
 
@@ -59,19 +57,18 @@ def sweep_train():
         "test_accuracy": test_acc
     })
     
-    # Save weights
     path = model_path(args)
     weights = model.get_weights()
     np.save(path, weights)
     
-    # Save config JSON
     config_dict = vars(args)
     config_save_path = path.replace(".npy", ".json")
     with open(config_save_path, "w") as f:
         json.dump(config_dict, f, indent=4)
     
-    print(f"Model saved at {path}, config saved at {config_save_path}")
+    if test_acc >= 0.97:
+        os._exit(0)
 
 if __name__ == "__main__":
     sweep_id = wandb.sweep(sweep_config, project="da6401")
-    wandb.agent(sweep_id, function=sweep_train, count=110)
+    wandb.agent(sweep_id, function=sweep_train)

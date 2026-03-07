@@ -1,0 +1,20 @@
+C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\ann\activations.py:30: RuntimeWarning: overflow encountered in exp
+  e = np.exp(x - np.max(x, axis=1, keepdims=True))
+C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\ann\activations.py:31: RuntimeWarning: invalid value encountered in divide
+  return e / np.sum(e, axis=1, keepdims=True)
+Traceback (most recent call last):
+  File "C:\Users\ashke\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\wandb\agents\pyagent.py", line 304, in _run_job
+    self._function()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\wanb_sweep.py", line 50, in sweep_train
+    model.train(X_train, y_train, epochs=args.epochs, batch_size=args.batch_size)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\ann\neural_network.py", line 155, in train
+    self.backward(yb, logits)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\ann\neural_network.py", line 84, in backward
+    grad = cross_entropy_grad(y_true, y_pred)
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\ann\objective_functions.py", line 17, in cross_entropy_grad
+    probs[range(m), y] -= 1
+    ~~~~~^^^^^^^^^^^^^
+IndexError: arrays used as indices must be of integer (or boolean) type
