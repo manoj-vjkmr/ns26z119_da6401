@@ -36,12 +36,11 @@ class neural_layer:
             if self.activation == "relu":
                 grad = grad * (self.z > 0)
             elif self.activation == "sigmoid":
-                sig = 1 / (1 + np.exp(-self.z))
-                grad = grad * sig * (1 - sig)
+                grad = grad * self.a * (1 - self.a)
             elif self.activation == "tanh":
-                grad = grad * (1 - np.tanh(self.z)**2)
+                grad = grad * (1 - self.a**2)
 
             self.grad_W = np.dot(self.x.T, grad)
             self.grad_b = np.sum(grad, axis=0, keepdims=True)
-
+            
             return np.dot(grad, self.W.T)
