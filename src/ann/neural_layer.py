@@ -33,16 +33,15 @@ class neural_layer:
         return self.a
 
     def backward_pass(self, grad):
-        if self.activation == "relu":
-            grad = grad * (self.z > 0)
-        elif self.activation == "sigmoid":
-            sig = 1 / (1 + np.exp(-self.z))
-            grad = grad * sig * (1 - sig)
-        elif self.activation == "tanh":
-            grad = grad * (1 - np.tanh(self.z)**2)
+            if self.activation == "relu":
+                grad = grad * (self.z > 0)
+            elif self.activation == "sigmoid":
+                sig = 1 / (1 + np.exp(-self.z))
+                grad = grad * sig * (1 - sig)
+            elif self.activation == "tanh":
+                grad = grad * (1 - np.tanh(self.z)**2)
 
-        self.grad_W = np.dot(self.x.T, grad)
-        self.grad_b = np.sum(grad, axis=0, keepdims=True)
+            self.grad_W = np.dot(self.x.T, grad)
+            self.grad_b = np.sum(grad, axis=0, keepdims=True)
 
-        grad_input = np.dot(grad, self.W.T)
-        return grad_input
+            return np.dot(grad, self.W.T)

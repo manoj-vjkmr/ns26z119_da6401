@@ -109,26 +109,22 @@ class NeuralNetwork:
 
     def get_weights(self):
 
-        weights= []
+            weights_dict = {}
+            for i, layer in enumerate(self.layers):
+                weights_dict[f"W{i}"] = layer.W
+                weights_dict[f"b{i}"] = layer.b
+            return weights_dict
 
-        for layer in self.layers:
-            weights.append({
-                "W": layer.W,
-                "b": layer.b
-            })
+        def set_weights(self, weight_dict):
 
-        return weights
-
-    def set_weights(self, weight_dict):
-        for i, layer in enumerate(self.layers):
-            w_key = f"W{i}"
-            b_key = f"b{i}"
-
-            if w_key not in weight_dict or b_key not in weight_dict:
-                raise ValueError(f"Missing weights for layer {i}")
-
-            layer.W = weight_dict[w_key].copy()
-            layer.b = weight_dict[b_key].copy()
+            for i, layer in enumerate(self.layers):
+                w_key = f"W{i}"
+                b_key = f"b{i}"
+                if w_key in weight_dict and b_key in weight_dict:
+                    layer.W = weight_dict[w_key].copy()
+                    layer.b = weight_dict[b_key].copy()
+                else:
+                    print(f"Warning: {w_key} or {b_key} not found in provided weights.")
 
     def train(self, X_train, y_train, X_val=None, y_val=None, epochs=1, batch_size=32):
 
