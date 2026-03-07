@@ -1,0 +1,22 @@
+{
+    "dataset": "mnist",
+    "epochs": 20,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "loss": "cross_entropy",
+    "optimizer": "momentum",
+    "num_layers": 6,
+    "hidden_size": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+    ],
+    "activation": "tanh",
+    "weight_init": "random",
+    "wandb_project": "da6401",
+    "model_save_path": null
+}

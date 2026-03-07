@@ -1,0 +1,22 @@
+{
+    "dataset": "mnist",
+    "epochs": 10,
+    "batch_size": 64,
+    "learning_rate": 0.002,
+    "weight_decay": 1e-05,
+    "loss": "mse",
+    "optimizer": "rmsprop",
+    "num_layers": 6,
+    "hidden_size": [
+        96,
+        96,
+        96,
+        96,
+        96,
+        96
+    ],
+    "activation": "relu",
+    "weight_init": "random",
+    "wandb_project": "da6401",
+    "model_save_path": null
+}

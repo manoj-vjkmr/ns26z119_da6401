@@ -1,0 +1,18 @@
+{
+    "dataset": "mnist",
+    "epochs": 10,
+    "batch_size": 128,
+    "learning_rate": 0.0005,
+    "weight_decay": 0,
+    "loss": "mse",
+    "optimizer": "nag",
+    "num_layers": 2,
+    "hidden_size": [
+        128,
+        128
+    ],
+    "activation": "tanh",
+    "weight_init": "random",
+    "wandb_project": "da6401",
+    "model_save_path": null
+}

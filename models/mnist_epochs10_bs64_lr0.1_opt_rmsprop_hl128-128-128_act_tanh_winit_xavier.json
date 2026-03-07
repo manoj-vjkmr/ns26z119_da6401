@@ -1,0 +1,19 @@
+{
+    "dataset": "mnist",
+    "epochs": 10,
+    "batch_size": 64,
+    "learning_rate": 0.1,
+    "weight_decay": 0.0,
+    "loss": "cross_entropy",
+    "optimizer": "rmsprop",
+    "num_layers": 3,
+    "hidden_size": [
+        128,
+        128,
+        128
+    ],
+    "activation": "tanh",
+    "weight_init": "xavier",
+    "wandb_project": "da6401",
+    "model_save_path": null
+}

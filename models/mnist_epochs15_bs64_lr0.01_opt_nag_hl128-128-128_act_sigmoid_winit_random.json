@@ -1,0 +1,19 @@
+{
+    "dataset": "mnist",
+    "epochs": 15,
+    "batch_size": 64,
+    "learning_rate": 0.01,
+    "weight_decay": 1e-05,
+    "loss": "cross_entropy",
+    "optimizer": "nag",
+    "num_layers": 3,
+    "hidden_size": [
+        128,
+        128,
+        128
+    ],
+    "activation": "sigmoid",
+    "weight_init": "random",
+    "wandb_project": "da6401",
+    "model_save_path": null
+}
