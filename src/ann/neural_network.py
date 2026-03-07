@@ -3,7 +3,7 @@ Main Neural Network Model class
 Handles forward and backward propagation loops
 """
 import numpy as np
-from .neural_layer import neural_layer
+from .NeuralNetwork import NeuralNetwork
 from .activations import relu, relu_derivative, sigmoid, sigmoid_derivative, tanh, tanh_derivative
 from .objective_functions import cross_entropy_grad, mse_grad
 from .optimizers import SGD, Momentum, RMSProp
@@ -17,10 +17,10 @@ class NeuralNetwork:
         n= 784 #hardcoded since MNIST images are 28x28
 
         for h in cli_options.hidden_size:
-            self.layers.append(neural_layer(n, h, cli_options.weight_init))
+            self.layers.append(NeuralNetwork(n, h, cli_options.weight_init))
             n= h
 
-        self.layers.append(neural_layer(n, 10, cli_options.weight_init))
+        self.layers.append(NeuralNetwork(n, 10, cli_options.weight_init))
         self.activation= cli_options.activation
         self.loss= cli_options.loss
 
