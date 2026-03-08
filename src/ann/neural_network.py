@@ -93,7 +93,6 @@ class NeuralNetwork:
                 dW_list.append(layer.grad_W)
                 db_list.append(layer.grad_b)
 
-            # Autograder expects [Layer0_grad, Layer1_grad, ...]
             self.grad_W = dW_list[::-1] 
             self.grad_b = db_list[::-1]
 
