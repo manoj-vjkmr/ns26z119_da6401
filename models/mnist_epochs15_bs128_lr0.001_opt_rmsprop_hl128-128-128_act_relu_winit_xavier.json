@@ -1,8 +1,8 @@
 {
     "dataset": "mnist",
-    "epochs": 20,
-    "batch_size": 64,
-    "learning_rate": 0.0001,
+    "epochs": 15,
+    "batch_size": 128,
+    "learning_rate": 0.001,
     "weight_decay": 0.0,
     "loss": "cross_entropy",
     "optimizer": "rmsprop",

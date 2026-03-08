@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\train.py", line 68, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\train.py", line 51, in main
+    model.train(X_train, y_train, epochs=args.epochs, batch_size=args.batch_size)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashke\Downloads\NS26Z119_DL_Assignment1\src\ann\neural_network.py", line 143, in train
+    yb_onehot = one_hot(yb, num_classes=10)
+                ^^^^^^^
+NameError: name 'one_hot' is not defined

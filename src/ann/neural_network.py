@@ -85,17 +85,17 @@ class NeuralNetwork:
             else:
                 grad = mse_grad(y_true, y_pred)
 
-            dW_list = []
-            db_list = []
+            grad_W_list = []
+            grad_b_list = []
 
             for layer in reversed(self.layers):
-                grad = layer.backward_pass(grad)
-                dW_list.append(layer.grad_W)
-                db_list.append(layer.grad_b)
+                grad = layer.backward_pass(grad) 
+                
+                grad_W_list.append(layer.grad_W)
+                grad_b_list.append(layer.grad_b)
 
-            self.grad_W = dW_list[::-1] 
-            self.grad_b = db_list[::-1]
-
+            self.grad_W = grad_W_list[::-1]
+            self.grad_b = grad_b_list[::-1]
             return self.grad_W, self.grad_b
 
     def update_weights(self):

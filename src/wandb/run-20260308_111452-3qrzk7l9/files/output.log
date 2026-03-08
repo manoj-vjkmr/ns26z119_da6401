@@ -1,0 +1,2 @@
+Test Accuracy: 0.9333
+Model saved at ..\models\mnist_epochs20_bs64_lr0.0001_opt_rmsprop_hl128-128-128_act_relu_winit_xavier_1.npy

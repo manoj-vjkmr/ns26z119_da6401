@@ -1,0 +1,2 @@
+Test Accuracy: 0.8535
+Model saved at ..\models\mnist_epochs20_bs64_lr0.001_opt_rmsprop_hl96-96_act_sigmoid_winit_xavier_3.npy

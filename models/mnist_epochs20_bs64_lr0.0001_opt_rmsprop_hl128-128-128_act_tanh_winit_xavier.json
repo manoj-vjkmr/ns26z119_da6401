@@ -12,7 +12,7 @@
         128,
         128
     ],
-    "activation": "relu",
+    "activation": "tanh",
     "weight_init": "xavier",
     "wandb_project": "da6401",
     "model_save_path": null
